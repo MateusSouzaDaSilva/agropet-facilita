@@ -1,0 +1,188 @@
+/* General */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.logo img {
+    width: 250px;
+    
+}
+
+/* General reset settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+body a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* header */
+header {
+    background-color: rgb(17, 103, 103);
+    height: 145px;
+
+}
+
+.adm-menu {
+    background-color: rgb(17, 103, 103);
+    height: 120px;
+
+}
+
+header .form-search {
+    width: 350px;
+
+}
+
+header .form-control {
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.menubar {
+    background-color: #24ac84;
+    margin-top: 0px;
+    color: #fff;  
+}
+
+.menubar nav {
+    padding: 0;
+}
+
+.navbar-nav {
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.menubar nav {
+    align-items: center;
+    
+}
+
+.menu-item-img img {
+    width: 35%;
+    transition: all .3s;
+    filter: opacity(90%);
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+.menu-item-img img:hover {
+    box-shadow: 0 0 100px rgba(33,33,33,.2); 
+    filter: opacity(100%);
+    transition: 1s;
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+.menu-item-img img:active {
+    filter: blur(3px); 
+}
+
+.menu-item {
+    text-align: center; 
+}
+
+.menu-item a {
+    width: auto;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu-item a:hover {
+    color: #24ac84;
+}
+
+.navbar li {
+    width: 100px;
+    height: 48px;
+}
+
+.navbar li:hover {
+    background-color: #fff;
+}
+
+
+
+/* Cards */
+
+.card .card-img-top{
+    /* width: auto;
+    height: 150px;
+    position: relative;
+    left: 50px; */
+
+ height: 150px; /* Altura fixa */
+  width: auto; /* Largura automática, mantendo a proporção original */
+  display: block; /* Remove o espaço extra abaixo da imagem */
+  margin: 0 auto;
+}
+
+
+
+/* dashboard card */
+.card i {
+    width: 140px;
+    position: relative;
+    left: 50px;
+    font-size: 100px;
+}
+
+.card .price {
+    font-weight: bold;
+    font-size: large;
+    margin-top: 10px;
+}
+
+main .card  {
+    /* width: 13rem;
+    height: 17rem;
+    transition: box-shadow .3s; */
+
+    width: 13rem;
+    height: 17rem;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.product-list .card {
+    margin-right: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }
+
+/* footer */
+
+footer {
+    text-align: center;
+    background-color: rgb(17, 103, 103);
+    color: #fff;
+    padding: 30px;
+    position: sticky; /* Alterado para 'sticky' */
+    bottom: 0;
+    width: 100%;
+    top: auto; /* Define 'top' como 'auto' para iniciar o 'sticky' quando o footer atingir o topo da página */
+}
+
+footer p {
+    margin-bottom: 0;
+}
