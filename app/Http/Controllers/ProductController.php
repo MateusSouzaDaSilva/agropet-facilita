@@ -120,10 +120,16 @@ class ProductController extends Controller
 
     public function filtrarPorTag($tag)
     {
-        $products = Product::where('tags', $tag)->get();
+        
+         // Use whereJsonContains para buscar produtos com a tag especificada
+        $products = Product::whereJsonContains('tags', $tag)->get();
+
     
-        return view('welcome', ['products' => $products]);
+        return view('welcome', ['products' => $products]);   
+
+        
     }
+    
 
 
 }

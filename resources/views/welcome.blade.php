@@ -24,7 +24,7 @@
             </li>
 
             <li class="nav-item menu-item">
-                <a href="{{ route('produtos.filtrar', 'Peixe') }}" class="nav-link" onclick="filtrarPorTag('Aquario')">
+                <a href="{{ route('produtos.filtrar', 'Peixe') }}" class="nav-link" onclick="filtrarPorTag('Peixe')">
                     Peixe
                 </a>
             </li>
@@ -71,7 +71,7 @@
         </button>
     </div>
 
-    <div class="product-list" id="listaProdutos">
+    {{-- <div class="product-list" id="listaProdutos">
         <div class="row justify-content-center">
             @foreach ($products as $product)
                 <div class="col-lg-2 col-md-2 col-sm-6 col-6 mt-5" id="listaProdutos">
@@ -81,6 +81,30 @@
                         col-sm-6: 2 produtos por coluna em telas pequenas (sm)
                         col-6: 2 produtos por coluna em telas muito pequenas ou celulares (xs)
                     -->
+                    <div class="card mx-auto">
+                        <a href="{{ $product->prod_link }}">
+                            <img src="{{ $product->prod_image }}" class="card-img-top mt-4" alt="...">
+                            <div class="card-body">
+                                <ul>
+                                    <li>    
+                                        <p class="card-text">{{ $product->prod_name }}</p>        
+                                    </li>
+                                    <li>
+                                        <p class="price">R$ {{ number_format($product->prod_price, 2, ',', '.') }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div> --}}
+
+    <div class="product-list" id="listaProdutos">
+        <div class="row justify-content-center">
+            @foreach ($products as $product)
+                <div class="col-lg-2 col-md-2 col-sm-6 col-6 mt-5" id="listaProdutos">
                     <div class="card mx-auto">
                         <a href="{{ $product->prod_link }}">
                             <img src="{{ $product->prod_image }}" class="card-img-top mt-4" alt="...">
@@ -103,111 +127,8 @@
     
     
     
-    
-
-
-
-
-
-    {{-- <div class="product-list d-flex justify-content-center">
-        @foreach ($products as $product)
-            <div class="card justify-content-center mt-5">
-                <a href="/">
-                    <img src="img/camatoca.jpg" class="card-img-top mt-4" alt="...">
-                    <div class="card-body">
-                        <ul>
-                            <li>
-                                <p class="card-text">{{ $product->prod_name }}
-                                </p>
-                            </li>
-                            <li>
-                                <p class="price">R$ {{ number_format($product->prod_price, 2, ',', '.') }}</p>
-                            </li>
-                        </ul>
-                    </div>
-            </div>
-            </a>
-        @endforeach --}}
-
-        {{-- <div class="card justify-content-center mt-5">
-            <a href="/">
-                <img src="img/camatoca.jpg" class="card-img-top mt-4" alt="...">
-                <div class="card-body">
-                    <ul>
-                        <li>
-                            <p class="card-text">Cama toca iglu 2 em 1</p>
-                        </li>
-                        <li>
-                            <p class="price">R$ 89,11</p>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-        </a>
-        <div class="card justify-content-center mt-5">
-            <a href="/">
-                <img src="img/camatoca.jpg" class="card-img-top mt-4" alt="...">
-                <div class="card-body">
-                    <ul>
-                        <li>
-                            <p class="card-text">Cama toca iglu 2 em 1</p>
-                        </li>
-                        <li>
-                            <p class="price">R$ 89,11</p>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-        </a>
-        <div class="card justify-content-center mt-5">
-            <a href="/">
-                <img src="img/camatoca.jpg" class="card-img-top mt-4" alt="...">
-                <div class="card-body">
-                    <ul>
-                        <li>
-                            <p class="card-text">Cama toca iglu 2 em 1</p>
-                        </li>
-                        <li>
-                            <p class="price">R$ 89,11</p>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-        </a>
-        <div class="card justify-content-center mt-5">
-            <a href="/">
-                <img src="img/camatoca.jpg" class="card-img-top mt-4" alt="...">
-                <div class="card-body">
-                    <ul>
-                        <li>
-                            <p class="card-text">Cama toca iglu 2 em 1</p>
-                        </li>
-                        <li>
-                            <p class="price">R$ 89,11</p>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-        </a> --}}
-        {{-- <div class="card justify-content-center mt-5">
-            <a href="/">
-                <img src="img/camatoca.jpg" class="card-img-top mt-4" alt="...">
-                <div class="card-body">
-                    <ul>
-                        <li>
-                            <p class="card-text">Cama toca iglu 2 em 1</p>
-                        </li>
-                        <li>
-                            <p class="price">R$ 89,11</p>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-        </a>
-    </div> --}}
-
-    <script>
-        function filtrarPorTag(tag) {
+<script>
+function filtrarPorTag(tag) {
     // Faça uma requisição AJAX para buscar os produtos da tag
     $.ajax({
         url: '/filtrar-por-tag?tag=' + tag,  // Adicione a tag à URL como um parâmetro
@@ -218,11 +139,16 @@
 
             // Exiba os produtos filtrados
             response.produtos.forEach(produto => {
-                $('#listaProdutos').append('<div>' + produto.nome + '</div>');
+                // Itere sobre as tags e crie uma string separada para cada tag
+                const tagsAsString = produto.tags.map(tag => '<span>' + tag + '</span>').join('<br>');
+                $('#listaProdutos').append('<div>' + produto.nome + ' - Tags:<br>' + tagsAsString + '</div>');
             });
         }
     });
 }
+
+
+
 
     </script>
 

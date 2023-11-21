@@ -9,10 +9,10 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['prod_type'];
+    protected $fillable = ['tags'];
 
     protected $casts = [
-        'prod_type' => 'array'
+        'tags' => 'json'
     ];
     
     protected $dates = ['date'];

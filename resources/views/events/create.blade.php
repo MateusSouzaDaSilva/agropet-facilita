@@ -47,35 +47,35 @@
         <div class="form-group">
             <label for="title" id="form-label">Esta em promoção</label>
             <select name="promocao" id="promocao" class="form-control">
-                <option value="0">Não</option>
+                <option value="0" selected>Não</option>
                 <option value="1">Sim</option>
             </select>
         </div>
         <div class="form-group">
             <label for="title" id="form-label">Adicione categorias ao produto:</label>
             <div class="form-group">
-                <input type="checkbox" name="tags" value="Cachorro"> Cachorro
+                <input type="checkbox" name="tags[]" value="Cachorro"> Cachorro
             </div>
             <div class="form-group">
-                <input type="checkbox" name="tags" value="Gato"> Gato            
+                <input type="checkbox" name="tags[]" value="Gato"> Gato            
             </div>
             <div class="form-group">
-                <input type="checkbox" name="tags" value="Passaro"> Pássaro           
+                <input type="checkbox" name="tags[]" value="Passaro"> Pássaro           
             </div>
             <div class="form-group">
-                <input type="checkbox" name="tags" value="Roedor"> Roedor
+                <input type="checkbox" name="tags[]" value="Roedor"> Roedor
             </div>
             <div class="form-group">
-                <input type="checkbox" name="tags" value="Aquario"> Aquario
+                <input type="checkbox" name="tags[]" value="Peixe"> Peixe
             </div>
             <div class="form-group">
-                <input type="checkbox" name="tags" value="Agro"> Agro
+                <input type="checkbox" name="tags[]" value="Agro"> Agro
             </div>
             <div class="form-group">
-                <input type="checkbox" name="tags" value="Higiene"> Higiene
+                <input type="checkbox" name="tags[]" value="Higiene"> Higiene
             </div>
         </div>
-        <input type="submit" value="Criar evento" class="btn btn-primary" id="send">
+        <input type="submit" value="Criar produto" class="btn btn-primary" id="send">
     </form>
 </div>
 

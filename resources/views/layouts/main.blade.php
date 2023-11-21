@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <link rel="shortcut icon" href="img/rounded_logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('img/rounded_logo.png') }}" type="image/x-icon">
 
     <title>@yield('title')</title>
 
@@ -26,6 +26,26 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <!-- Confirmação do domínio -->
+    <meta name="facebook-domain-verification" content="03z0ik2dsvx36grayeocafn7n7gcdk" />
+
+    <!-- Pixel Meta -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '362748409532554');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=362748409532554&ev=PageView&noscript=1"
+        /></noscript>
 
 </head>
 
@@ -50,54 +70,7 @@
        
     </header>
     <main>
-        {{-- <div class="menubar">
-            <nav class="navbar navbar-expand-lg">
-                <ul class="navbar-nav">
-                    <li class="nav-item menu-item">
-                        <a href="#" class="nav-link" onclick="filtrarPorCategoria('Cachorro')"> 
-                            Cão
-                        </a>
-                    </li>
-
-                    <li class="nav-item menu-item">
-                        <a href="#" class="nav-link" onclick="filtrarPorCategoria('Gato')">
-                           Gato
-                        </a>
-                    </li>
-
-                    <li class="nav-item menu-item">
-                        <a href="#" class="nav-link" onclick="filtrarPorCategoria('Roedor')">
-                            Roedor
-                        </a>
-                    </li>
-
-                    <li class="nav-item menu-item">
-                        <a href="#" class="nav-link" onclick="filtrarPorCategoria('Aquario')">
-                            Peixe
-                        </a>
-                    </li>
-
-                    <li class="nav-item menu-item">
-                        <a href="#" class="nav-link" onclick="filtrarPorCategoria('Passaro')">
-                            Pássaro
-                        </a>
-                    </li>
-
-                    <li class="nav-item menu-item">
-                        <a href="#" class="nav-link" onclick="filtrarPorCategoria('Higiene')">
-                            Higiene
-                        </a>
-                    </li>
-
-                    <li class="nav-item menu-item">
-                        <a href="#" class="nav-link" onclick="filtrarPorCategoria('Agro')">
-                            Agro
-                        </a>
-                    </li>
-                 
-                </ul>
-            </nav>
-        </div> --}}
+    
         <div class="row">
             @yield('content')
         </div>
@@ -106,6 +79,7 @@
    
     <footer>
         <p>Agropet Facilita &copy; 2023</p>
+        <p><a href="https://www.tiktok.com/@agropetfacilita?_t=8gSQITvy7cb&_r=1"><i class="bi bi-tiktok"></i></a></p>
     </footer>
     
 </body>
